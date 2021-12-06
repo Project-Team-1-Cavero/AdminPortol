@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'database_logic.dart';
+//import 'package:firebase/firebase.dart';
 
 class addDataWidget extends StatefulWidget {
   addDataWidget({Key? key}) : super(key: key);
@@ -23,6 +24,7 @@ class _addDataWidgetState extends State<addDataWidget> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -78,6 +80,18 @@ class _addDataWidgetState extends State<addDataWidget> {
                   ),
                   Text(textfield),
                   Container(
+                        width: 100,
+                        height: 50,
+                        decoration: BoxDecoration(color: Colors.green),
+                        child: MaterialButton(
+                          onPressed: () {
+                            uploadToStorage();
+                          },
+                          child: Text("upload image "),
+                        ),
+
+                      ),
+                  Container(
                     width: 100,
                     height: 50,
                     decoration: BoxDecoration(color: Colors.green),
@@ -102,4 +116,9 @@ class _addDataWidgetState extends State<addDataWidget> {
                 ],
               );
   }
+  
 }
+
+
+  
+
