@@ -35,10 +35,10 @@ Future<bool> addArtPiece(String name, String info, String year, String artiest, 
 
 
 }
-Future<Uri> dowmloadURL(){
+Future<Uri> dowmloadURL(String ImageLocation){
   return firebase.storage()
   .refFromURL('gs://caveroartgallerytrip.appspot.com')
-  .child('APP[[[[[[De vier elementen-Vuur - acryl op doek 100X100 - 2005.jpg')
+  .child('')
   .getDownloadURL();
 
 }
@@ -56,14 +56,13 @@ void uploadImage({required Function(File file) Selected}){
   });
   }
   void uploadToStorage(){
-    final dateTime = DateTime.now();
     
-    final path = '$dateTime';
     uploadImage(
       Selected: (file){
     firebase.storage()
-    .refFromURL('gs://caveroartgallerytrip.appspot.com')
-    .child('path').put(file);
+    .refFromURL('gs://caveroartgallerytrip.appspot.com')   //locatie van firebase 
+    .child(file.name)                                      //locatie van de foto/jpeg file
+    .put(file);                                            //upload foto naar de juiste locatie
     },);
 
   }
