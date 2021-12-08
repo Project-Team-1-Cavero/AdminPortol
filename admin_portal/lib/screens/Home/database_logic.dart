@@ -38,7 +38,7 @@ Future<bool> addArtPiece(String name, String info, String year, String artiest, 
 Future<Uri> dowmloadURL(String ImageLocation){
   return firebase.storage()
   .refFromURL('gs://caveroartgallerytrip.appspot.com')
-  .child('')
+  .child(ImageLocation)
   .getDownloadURL();
 
 }
@@ -55,13 +55,13 @@ void uploadImage({required Function(File file) Selected}){
     });
   });
   }
-  void uploadToStorage(){
+  void uploadToStorage(String artname, String artist){
     
     uploadImage(
       Selected: (file){
     firebase.storage()
     .refFromURL('gs://caveroartgallerytrip.appspot.com')   //locatie van firebase 
-    .child(file.name)                                      //locatie van de foto/jpeg file
+    .child(artist + artname)                               //locatie van de foto/jpeg file aan maken
     .put(file);                                            //upload foto naar de juiste locatie
     },);
 

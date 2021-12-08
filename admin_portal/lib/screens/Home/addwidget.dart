@@ -85,7 +85,7 @@ class _addDataWidgetState extends State<addDataWidget> {
                         decoration: BoxDecoration(color: Colors.green),
                         child: MaterialButton(
                           onPressed: () {
-                            uploadToStorage();
+                            uploadToStorage(_nameField.text);
                           },
                           child: Text("upload image "),
                         ),
