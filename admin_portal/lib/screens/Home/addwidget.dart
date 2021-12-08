@@ -85,7 +85,7 @@ class _addDataWidgetState extends State<addDataWidget> {
                         decoration: BoxDecoration(color: Colors.green),
                         child: MaterialButton(
                           onPressed: () {
-                            uploadToStorage(_nameField.text);
+                            selectImages();
                           },
                           child: Text("upload image "),
                         ),
@@ -99,6 +99,7 @@ class _addDataWidgetState extends State<addDataWidget> {
                       child: Text("Add"),
                       onPressed: () async {
                         bool isAdded = await addArtPiece(_nameField.text, _infoField.text, _yearField.text, _artiestField.text, _videoField.text, _roomField.text, _buyField.text);
+                        uploadToFbStorage(_nameField.text, _artiestField.text);
                         if (isAdded)
                         {
                           setState(() {

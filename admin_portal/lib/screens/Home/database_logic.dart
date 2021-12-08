@@ -42,7 +42,8 @@ Future<Uri> dowmloadURL(String ImageLocation){
   .getDownloadURL();
 
 }
-void uploadImages({required Function(File file) Selected}){
+var image = null;
+void selectImages(){
   var imageInput = FileUploadInputElement()..accept = 'image/*';     //dit zorgt ervoor dat je alleen maar foto's kan uploaden
   imageInput.click();
 
@@ -50,19 +51,21 @@ void uploadImages({required Function(File file) Selected}){
     var file = imageInput.files!.first;
     var fileReader = FileReader();
     fileReader.readAsDataUrl(file);
+    image = file;
+    
     fileReader.onLoadEnd.listen((event) {
-      Selected(file);
+      
     });
   });
   }
   void uploadToFbStorage(String artname, String artist){
     
-    uploadImages(
-      Selected: (file){
+    
+      
     firebase.storage()
     .refFromURL('gs://caveroartgallerytrip.appspot.com')   //locatie van firebase 
     .child(artist + artname)                               //locatie van de foto/jpeg file aan maken
-    .put(file);                                            //upload foto naar de juiste locatie
-    },);
+    .put(image);                                            //upload foto naar de juiste locatie
+    
 
   }
