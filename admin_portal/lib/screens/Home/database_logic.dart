@@ -42,22 +42,22 @@ Future<Uri> dowmloadURL(String ImageLocation){
   .getDownloadURL();
 
 }
-void uploadImage({required Function(File file) Selected}){
-  var uploadInput = FileUploadInputElement()..accept = 'image/*';     //dit zorgt ervoor dat je alleen maar foto's kan uploaden
-  uploadInput.click();
+void uploadImages({required Function(File file) Selected}){
+  var imageInput = FileUploadInputElement()..accept = 'image/*';     //dit zorgt ervoor dat je alleen maar foto's kan uploaden
+  imageInput.click();
 
-  uploadInput.onChange.listen((event) {
-    final file = uploadInput.files!.first;
-    final reader = FileReader();
-    reader.readAsDataUrl(file);
-    reader.onLoadEnd.listen((event) {
+  imageInput.onChange.listen((event) {
+    var file = imageInput.files!.first;
+    var fileReader = FileReader();
+    fileReader.readAsDataUrl(file);
+    fileReader.onLoadEnd.listen((event) {
       Selected(file);
     });
   });
   }
-  void uploadToStorage(String artname, String artist){
+  void uploadToFbStorage(String artname, String artist){
     
-    uploadImage(
+    uploadImages(
       Selected: (file){
     firebase.storage()
     .refFromURL('gs://caveroartgallerytrip.appspot.com')   //locatie van firebase 
