@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'database_logic.dart';
+//import 'package:firebase/firebase.dart';
 
 class addDataWidget extends StatefulWidget {
   addDataWidget({Key? key}) : super(key: key);
@@ -23,6 +24,7 @@ class _addDataWidgetState extends State<addDataWidget> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -78,6 +80,18 @@ class _addDataWidgetState extends State<addDataWidget> {
                   ),
                   Text(textfield),
                   Container(
+                        width: 100,
+                        height: 50,
+                        decoration: BoxDecoration(color: Colors.green),
+                        child: MaterialButton(
+                          onPressed: () {
+                            selectImages();
+                          },
+                          child: Text("upload image "),
+                        ),
+
+                      ),
+                  Container(
                     width: 100,
                     height: 50,
                     decoration: BoxDecoration(color: Colors.green),
@@ -85,6 +99,7 @@ class _addDataWidgetState extends State<addDataWidget> {
                       child: Text("Add"),
                       onPressed: () async {
                         bool isAdded = await addArtPiece(_nameField.text, _infoField.text, _yearField.text, _artiestField.text, _videoField.text, _roomField.text, _buyField.text);
+                        uploadToFbStorage(_nameField.text, _artiestField.text);
                         if (isAdded)
                         {
                           setState(() {
@@ -102,4 +117,9 @@ class _addDataWidgetState extends State<addDataWidget> {
                 ],
               );
   }
+  
 }
+
+
+  
+
