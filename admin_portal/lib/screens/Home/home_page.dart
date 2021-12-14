@@ -11,30 +11,29 @@ class homePage extends StatefulWidget {
 }
 
 class _homePageState extends State<homePage> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        decoration: const BoxDecoration(
-          color: Colors.blue
-        ),
+        decoration: const BoxDecoration(color: Colors.blue),
         child: Row(
           children: [
             Container(
               width: MediaQuery.of(context).size.width / 2,
-        
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
                     padding: EdgeInsets.only(top: 30, bottom: 20),
-                    child: Text("Welcome",
-                      style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,),
+                    child: Text(
+                      "Welcome",
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                   Row(
@@ -46,9 +45,8 @@ class _homePageState extends State<homePage> {
                         decoration: BoxDecoration(color: Colors.green),
                         child: MaterialButton(
                           onPressed: () {},
-                          child: Text("Add a\nArt piece "),
+                          child: Text("Add an\nArt piece "),
                         ),
-
                       ),
                       Container(
                         width: 100,
@@ -56,9 +54,8 @@ class _homePageState extends State<homePage> {
                         decoration: BoxDecoration(color: Colors.green),
                         child: MaterialButton(
                           onPressed: () {},
-                          child: Text("delete a\nArt piece "),
+                          child: Text("delete an\nArt piece "),
                         ),
-
                       ),
                     ],
                   )
@@ -66,10 +63,9 @@ class _homePageState extends State<homePage> {
               ),
             ),
             Container(
-              width: MediaQuery.of(context).size.width / 2,
-              padding: EdgeInsets.only(top: 20),
-              child: addDataWidget()
-            )
+                width: MediaQuery.of(context).size.width / 2,
+                padding: EdgeInsets.only(top: 20),
+                child: addDataWidget())
           ],
         ),
       ),
