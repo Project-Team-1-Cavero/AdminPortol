@@ -54,7 +54,7 @@ class _homePageState extends State<homePage> {
                         decoration: BoxDecoration(color: Colors.green),
                         child: MaterialButton(
                           onPressed: () {},
-                          child: Text("delete an\nArt piece "),
+                          child: Text("Delete an\nArt piece "),
                         ),
                       ),
                     ],

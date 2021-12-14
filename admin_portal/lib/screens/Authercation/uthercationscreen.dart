@@ -9,11 +9,8 @@ import 'package:admin_portal/screens/Home/home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-
-
 class AuthercationScreen extends StatefulWidget {
   const AuthercationScreen({Key? key}) : super(key: key);
-
 
   @override
   _AuthercationScreenState createState() => _AuthercationScreenState();
@@ -23,7 +20,6 @@ class _AuthercationScreenState extends State<AuthercationScreen> {
   final TextEditingController _emailField = TextEditingController();
   final TextEditingController _passwordField = TextEditingController();
   String TextMessage = "";
-
 
   @override
   Widget build(BuildContext context) {
@@ -35,20 +31,17 @@ class _AuthercationScreenState extends State<AuthercationScreen> {
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.only(top: 20),
-              child: const Text("Login screen",
-              style: TextStyle(fontSize: 20),
-              )
-              ),
+                padding: EdgeInsets.only(top: 20),
+                child: const Text(
+                  "Login screen",
+                  style: TextStyle(fontSize: 20),
+                )),
             Container(
               width: MediaQuery.of(context).size.width / 3,
               child: TextField(
                 decoration: const InputDecoration(
-                  label: Text("Email"),
-                  hintText: "Something@gmail.com"
-                ),
+                    label: Text("Email"), hintText: "Something@gmail.com"),
                 controller: _emailField,
-                
               ),
             ),
             Container(
@@ -57,10 +50,7 @@ class _AuthercationScreenState extends State<AuthercationScreen> {
                 obscureText: true,
                 // ignore: prefer_const_constructors
                 decoration: InputDecoration(
-                  label: const Text("Password"),
-                  hintText: "Something"
-
-                ),
+                    label: const Text("Password"), hintText: "Something"),
                 controller: _passwordField,
               ),
             ),
@@ -68,18 +58,18 @@ class _AuthercationScreenState extends State<AuthercationScreen> {
             MaterialButton(
               onPressed: () async {
                 try {
-                  await FirebaseAuth.instance.signInWithEmailAndPassword(email: _emailField.text, password: _passwordField.text);
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => homePage()));
-    
+                  await FirebaseAuth.instance.signInWithEmailAndPassword(
+                      email: _emailField.text, password: _passwordField.text);
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => homePage()));
                 } catch (e) {
                   print(e.toString());
                   setState(() {
-                    
-                    TextMessage = "!ncorrect";
+                    TextMessage = "Incorrect";
                   });
                 }
               },
-              child: const Text("Signin"),
+              child: const Text("Sign in"),
             )
           ],
         ),
