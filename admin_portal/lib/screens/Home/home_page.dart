@@ -2,6 +2,7 @@ import 'package:admin_portal/screens/Home/addwidget.dart';
 import 'package:admin_portal/screens/Home/database_logic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:admin_portal/screens/Authercation/SignUp.dart';
 
 class homePage extends StatefulWidget {
   homePage({Key? key}) : super(key: key);
@@ -56,6 +57,24 @@ class _homePageState extends State<homePage> {
                           onPressed: () {},
                           child: Text("Delete an\nArt piece "),
                         ),
+                      ),
+                      Container(
+                        width: 100,
+                        height: 50,
+                        decoration: BoxDecoration(color: Colors.green),
+                        child: MaterialButton(
+                            child: Text("Add Account"),
+                            onPressed: () async {
+                              try {
+                                await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => SignUp()));
+                              } catch (e) {
+                                print(e.toString());
+                                ;
+                              }
+                            }),
                       ),
                     ],
                   )
