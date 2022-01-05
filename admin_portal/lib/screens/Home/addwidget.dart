@@ -16,6 +16,8 @@ class _addDataWidgetState extends State<addDataWidget> {
   final TextEditingController _yearField = TextEditingController();
   final TextEditingController _artiestField = TextEditingController();
   final TextEditingController _roomField = TextEditingController();
+  final TextEditingController _floorField = TextEditingController();
+  final TextEditingController _buildField = TextEditingController();
   final TextEditingController _videoField = TextEditingController();
   final TextEditingController _buyField = TextEditingController();
 
@@ -52,6 +54,14 @@ class _addDataWidgetState extends State<addDataWidget> {
           decoration: const InputDecoration(label: Text("Room")),
         ),
         TextField(
+          controller: _floorField,
+          decoration: const InputDecoration(label: Text("Floor")),
+        ),
+        TextField(
+          controller: _buildField,
+          decoration: const InputDecoration(label: Text("Building")),
+        ),
+        TextField(
           controller: _videoField,
           decoration: const InputDecoration(label: Text("Video link")),
         ),
@@ -85,6 +95,8 @@ class _addDataWidgetState extends State<addDataWidget> {
                   _artiestField.text,
                   _videoField.text,
                   _roomField.text,
+                  _floorField.text,
+                  _buildField.text,
                   _buyField.text);
               uploadToFbStorage(_nameField.text, _artiestField.text);
               if (isAdded) {
