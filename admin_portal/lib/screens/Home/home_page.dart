@@ -4,7 +4,7 @@ import 'package:admin_portal/screens/Home/database_logic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:admin_portal/screens/Authercation/SignUp.dart';
-
+import 'package:hexcolor/hexcolor.dart';
 class homePage extends StatefulWidget {
   homePage({Key? key}) : super(key: key);
 
@@ -20,7 +20,7 @@ class _homePageState extends State<homePage> {
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        decoration: const BoxDecoration(color: Colors.blue),
+        decoration: const BoxDecoration(color: Colors.white),
         child: Row(
           children: [
             Container(
@@ -39,31 +39,40 @@ class _homePageState extends State<homePage> {
                       ),
                     ),
                   ),
+                  SizedBox(
+                    height: 50,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
                         width: 100,
                         height: 50,
-                        decoration: BoxDecoration(color: Colors.green),
+                        decoration: BoxDecoration(color: HexColor("#A1813D")),
                         child: MaterialButton(
                           onPressed: () => setState(() => pageType = "add"),
                           child: Text("Add an\nArt piece "),
                         ),
                       ),
+                      SizedBox(
+                        width: 20,
+                      ),
                       Container(
                         width: 100,
                         height: 50,
-                        decoration: BoxDecoration(color: Colors.green),
+                        decoration: BoxDecoration(color: HexColor("#A1813D")),
                         child: MaterialButton(
                           onPressed: () => setState(() => pageType = "list"),
                           child: Text("List of\nArt pieces "),
                         ),
                       ),
+                      SizedBox(
+                        width: 20,
+                      ),
                       Container(
                         width: 100,
                         height: 50,
-                        decoration: BoxDecoration(color: Colors.green),
+                        decoration: BoxDecoration(color: HexColor("#A1813D")),
                         child: MaterialButton(
                             child: Text("Add Account"),
                             onPressed: () async {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:hexcolor/hexcolor.dart';
 import 'database_logic.dart';
 //import 'package:firebase/firebase.dart';
 
@@ -70,10 +70,12 @@ class _addDataWidgetState extends State<addDataWidget> {
           decoration: const InputDecoration(label: Text("Buy link")),
         ),
         Text(textfield),
-        Container(
+        Row(
+          children: [
+Container(
           width: 100,
           height: 50,
-          decoration: BoxDecoration(color: Colors.green),
+          decoration: BoxDecoration(color: HexColor("#A1813D")),
           child: MaterialButton(
             onPressed: () {
               selectImages();
@@ -81,10 +83,13 @@ class _addDataWidgetState extends State<addDataWidget> {
             child: Text("Upload image "),
           ),
         ),
+        SizedBox(
+              width: 20,
+            ),
         Container(
           width: 100,
           height: 50,
-          decoration: BoxDecoration(color: Colors.green),
+          decoration: BoxDecoration(color: HexColor("#A1813D")),
           child: MaterialButton(
             child: Text("Add"),
             onPressed: () async {
@@ -111,6 +116,9 @@ class _addDataWidgetState extends State<addDataWidget> {
             },
           ),
         )
+          ],
+        )
+        
       ],
     );
   }

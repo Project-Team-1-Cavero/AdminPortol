@@ -8,6 +8,7 @@ import 'package:admin_portal/screens/Authercation/aurhencation_logic.dart';
 import 'package:admin_portal/screens/Home/home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class AuthercationScreen extends StatefulWidget {
   const AuthercationScreen({Key? key}) : super(key: key);
@@ -24,54 +25,85 @@ class _AuthercationScreenState extends State<AuthercationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        decoration: const BoxDecoration(color: Colors.blue),
-        child: Column(
-          children: [
-            Container(
-                padding: EdgeInsets.only(top: 20),
-                child: const Text(
-                  "Login screen",
-                  style: TextStyle(fontSize: 20),
-                )),
-            Container(
-              width: MediaQuery.of(context).size.width / 3,
-              child: TextField(
-                decoration: const InputDecoration(
-                    label: Text("Email"), hintText: "Something@gmail.com"),
-                controller: _emailField,
+      body: Center(
+        child: Container(
+          decoration: const BoxDecoration(color: Colors.white),
+          height: MediaQuery.of(context).size.height * 0.7,
+          child: Column(
+            children: [
+              Container(
+                  padding: EdgeInsets.only(
+                      top: MediaQuery.of(context).size.height / 20),
+                  width: MediaQuery.of(context).size.width / 2,
+                  height: MediaQuery.of(context).size.height / 5,
+                  child: Image.asset("loodslogo.png")),
+              Container(
+                  padding: EdgeInsets.only(top: 30, bottom: 30),
+                  child: const Text(
+                    "Aanmelden met uw bestaande account",
+                    style: TextStyle(fontSize: 20),
+                  )),
+              Container(
+                width: MediaQuery.of(context).size.width / 3,
+                decoration: BoxDecoration(color: HexColor("#cbc2ae")),
+                child: TextField(
+                  cursorColor: Colors.black,
+                  decoration: const InputDecoration(
+                    label: Text("Email"),
+                    labelStyle: TextStyle(color: Colors.black),
+                  ),
+                  controller: _emailField,
+                ),
               ),
-            ),
-            Container(
-              width: MediaQuery.of(context).size.width / 3,
-              child: TextField(
-                obscureText: true,
-                // ignore: prefer_const_constructors
-                decoration: InputDecoration(
-                    label: const Text("Password"), hintText: "Something"),
-                controller: _passwordField,
+              SizedBox(
+                height: 20,
               ),
-            ),
-            Text(TextMessage),
-            MaterialButton(
-              onPressed: () async {
-                try {
-                  await FirebaseAuth.instance.signInWithEmailAndPassword(
-                      email: _emailField.text, password: _passwordField.text);
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => homePage()));
-                } catch (e) {
-                  print(e.toString());
-                  setState(() {
-                    TextMessage = "Incorrect";
-                  });
-                }
-              },
-              child: const Text("Sign in"),
-            )
-          ],
+              Container(
+                width: MediaQuery.of(context).size.width / 3,
+                decoration: BoxDecoration(color: HexColor("#cbc2ae")),
+                child: TextField(
+                  cursorColor: Colors.black,
+                  obscureText: true,
+                  // ignore: prefer_const_constructors
+                  decoration: InputDecoration(
+                    label: const Text("Password"),
+                    labelStyle: TextStyle(color: Colors.black),
+                  ),
+
+                  controller: _passwordField,
+                ),
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              Text(TextMessage),
+              Container(
+                  height: MediaQuery.of(context).size.height / 11,
+                  width: MediaQuery.of(context).size.width / 5,
+                  decoration: BoxDecoration(color: HexColor("#A1813D")),
+                  child: MaterialButton(
+                    onPressed: () async {
+                      try {
+                        await FirebaseAuth.instance.signInWithEmailAndPassword(
+                            email: _emailField.text,
+                            password: _passwordField.text);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => homePage()));
+                      } catch (e) {
+                        print(e.toString());
+                        setState(() {
+                          TextMessage = "Incorrect";
+                        });
+                      }
+                    },
+                    child: const Text(
+                      "Aanmelden",
+                    ),
+                  )),
+            ],
+          ),
         ),
       ),
     );
