@@ -1,5 +1,5 @@
 import 'package:admin_portal/screens/Home/addwidget.dart';
-import 'package:admin_portal/screens/Home/artlistwidget.dart';
+import 'package:admin_portal/screens/Home/artlist.dart';
 import 'package:admin_portal/screens/Home/database_logic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -13,6 +13,7 @@ class homePage extends StatefulWidget {
 }
 
 class _homePageState extends State<homePage> {
+  String pageType = "list";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +47,7 @@ class _homePageState extends State<homePage> {
                         height: 50,
                         decoration: BoxDecoration(color: Colors.green),
                         child: MaterialButton(
-                          onPressed: () {},
+                          onPressed: () => setState(() => pageType = "add"),
                           child: Text("Add an\nArt piece "),
                         ),
                       ),
@@ -55,8 +56,8 @@ class _homePageState extends State<homePage> {
                         height: 50,
                         decoration: BoxDecoration(color: Colors.green),
                         child: MaterialButton(
-                          onPressed: () {},
-                          child: Text("Delete an\nArt piece "),
+                          onPressed: () => setState(() => pageType = "list"),
+                          child: Text("List of\nArt pieces "),
                         ),
                       ),
                       Container(
@@ -85,7 +86,7 @@ class _homePageState extends State<homePage> {
             Container(
                 width: MediaQuery.of(context).size.width / 2,
                 padding: EdgeInsets.only(top: 20),
-                child: addDataWidget())
+                child: (pageType == "list") ? artList() : addDataWidget())
           ],
         ),
       ),
