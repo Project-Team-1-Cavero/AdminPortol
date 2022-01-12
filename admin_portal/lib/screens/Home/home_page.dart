@@ -24,6 +24,7 @@ class _homePageState extends State<homePage> {
         child: Row(
           children: [
             Container(
+              padding: EdgeInsets.only(left: 10),
               width: MediaQuery.of(context).size.width / 2,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
