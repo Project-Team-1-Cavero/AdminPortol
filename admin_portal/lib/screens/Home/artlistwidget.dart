@@ -127,6 +127,11 @@ class _artListWidgetState extends State<artListWidget> {
                     iconSize: 40.0,
                     tooltip: "Delete",
                     onPressed: () {
+                      widget.artpiece.reference.delete();
+                      setState(() {
+                        
+                      });
+
                       //Delete functie
                     },
                   ),
