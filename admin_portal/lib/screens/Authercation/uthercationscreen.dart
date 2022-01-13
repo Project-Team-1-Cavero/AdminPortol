@@ -28,7 +28,8 @@ class _AuthercationScreenState extends State<AuthercationScreen> {
       body: Center(
         child: Container(
           decoration: const BoxDecoration(color: Colors.white),
-          height: MediaQuery.of(context).size.height * 0.7,
+          height: MediaQuery.of(context).size.height * 0.8,
+          width: MediaQuery.of(context).size.width * 0.8,
           child: Column(
             children: [
               Container(
@@ -44,7 +45,7 @@ class _AuthercationScreenState extends State<AuthercationScreen> {
                     style: TextStyle(fontSize: 20),
                   )),
               Container(
-                width: MediaQuery.of(context).size.width / 3,
+                width: MediaQuery.of(context).size.width / 2.5,
                 decoration: BoxDecoration(color: HexColor("#cbc2ae")),
                 child: TextField(
                   cursorColor: Colors.black,
@@ -59,7 +60,7 @@ class _AuthercationScreenState extends State<AuthercationScreen> {
                 height: 20,
               ),
               Container(
-                width: MediaQuery.of(context).size.width / 3,
+                width: MediaQuery.of(context).size.width / 2.5,
                 decoration: BoxDecoration(color: HexColor("#cbc2ae")),
                 child: TextField(
                   cursorColor: Colors.black,
@@ -100,6 +101,7 @@ class _AuthercationScreenState extends State<AuthercationScreen> {
                     },
                     child: const Text(
                       "Aanmelden",
+                      style: TextStyle(fontSize: 20),
                     ),
                   )),
             ],

@@ -74,7 +74,7 @@ class _addDataWidgetState extends State<addDataWidget> {
           children: [
 Container(
           width: 100,
-          height: 50,
+          height: 35,
           decoration: BoxDecoration(color: HexColor("#A1813D")),
           child: MaterialButton(
             onPressed: () {
@@ -88,7 +88,7 @@ Container(
             ),
         Container(
           width: 100,
-          height: 50,
+          height: 35,
           decoration: BoxDecoration(color: HexColor("#A1813D")),
           child: MaterialButton(
             child: Text("Add"),

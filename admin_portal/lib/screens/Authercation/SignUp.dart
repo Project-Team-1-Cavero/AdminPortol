@@ -56,11 +56,12 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        
         body: Center(
       child: Container(
         decoration: const BoxDecoration(color: Colors.white),
-        height: MediaQuery.of(context).size.height * 0.7,
-        width: MediaQuery.of(context).size.width * 0.5,
+        height: MediaQuery.of(context).size.height * 0.8,
+        width: MediaQuery.of(context).size.width * 0.8,
         child: ListView(
           children: [
             Container(
@@ -78,7 +79,7 @@ class _SignUpState extends State<SignUp> {
                   key: fstate,
                   child: Column(children: [
                     SizedBox(
-                      height: 20,
+                      height: 30,
                     ),
                     TextFormField(
                       validator: (String? value) {
@@ -92,12 +93,17 @@ class _SignUpState extends State<SignUp> {
                         MyEmail = val;
                       },
                       decoration: InputDecoration(
+                          filled: true,
+                          constraints: const BoxConstraints.expand(
+                            height: 80,
+                            width: 600,
+                          ),
+                          fillColor: HexColor("#cbc2ae"),
                           hintText: "Email",
                           border: OutlineInputBorder(
                             borderSide: BorderSide(width: 1),
                           )),
                     ),
-                    SizedBox(height: 20),
                     TextFormField(
                       controller: password,
                       obscureText: true,
@@ -105,11 +111,15 @@ class _SignUpState extends State<SignUp> {
                         MyPassword = val;
                       },
                       decoration: InputDecoration(
+                          filled: true,
+                          constraints:
+                              BoxConstraints.tight(const Size(600, 50)),
+                          fillColor: HexColor("#cbc2ae"),
                           hintText: "Password",
                           border: OutlineInputBorder(
                               borderSide: BorderSide(width: 1))),
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 30),
                     TextFormField(
                       controller: confirmpassword,
                       obscureText: true,
@@ -120,31 +130,19 @@ class _SignUpState extends State<SignUp> {
                         return null;
                       },
                       decoration: InputDecoration(
+                          filled: true,
+                          constraints: const BoxConstraints.expand(
+                            height: 100,
+                            width: 600,
+                          ),
+                          fillColor: HexColor("#cbc2ae"),
                           hintText: "Confirm Password",
                           border: OutlineInputBorder(
                               borderSide: BorderSide(width: 1))),
                     ),
                     Container(
-                      margin: EdgeInsets.all(10),
-                      child: Row(
-                        children: [
-                          IconButton(
-                              onPressed: () async {
-                                try {
-                                  await Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => homePage()));
-                                } catch (e) {
-                                  print(e.toString());
-                                  ;
-                                }
-                              },
-                              icon: Icon(Icons.arrow_back)),
-                        ],
-                      ),
-                    ),
-                    Container(
+                      width: 150,
+                      height: 50,
                       child: MaterialButton(
                         textColor: Colors.black,
                         onPressed: () async {
@@ -163,7 +161,27 @@ class _SignUpState extends State<SignUp> {
                         child: Text("create account"),
                         color: HexColor("#A1813D"),
                       ),
-                    )
+                    ),
+                    Container(
+                        child: Row(children: [
+                          
+                      FloatingActionButton.small( 
+                        
+                        onPressed: () async {
+                          try {
+                            await Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => homePage()));
+                          } catch (e) {
+                            print(e.toString());
+                            ;
+                          }
+                        },
+                        backgroundColor: HexColor("#A1813D"),
+                        child: Icon(Icons.arrow_back, color: Colors.black,),
+                      ),
+                    ]))
                   ])),
             )
           ],

@@ -17,15 +17,16 @@ class _homePageState extends State<homePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
+      body: Center(child:
+      Container(
+        height: MediaQuery.of(context).size.height * 0.8,
+        width: MediaQuery.of(context).size.width * 0.8,
         decoration: const BoxDecoration(color: Colors.white),
         child: Row(
           children: [
             Container(
               padding: EdgeInsets.only(left: 10),
-              width: MediaQuery.of(context).size.width / 2,
+              width: MediaQuery.of(context).size.width / 4,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -43,7 +44,7 @@ class _homePageState extends State<homePage> {
                   SizedBox(
                     height: 50,
                   ),
-                  Row(
+                  Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
@@ -56,7 +57,7 @@ class _homePageState extends State<homePage> {
                         ),
                       ),
                       SizedBox(
-                        width: 20,
+                        height: 20,
                       ),
                       Container(
                         width: 100,
@@ -68,7 +69,7 @@ class _homePageState extends State<homePage> {
                         ),
                       ),
                       SizedBox(
-                        width: 20,
+                        height: 20,
                       ),
                       Container(
                         width: 100,
@@ -93,6 +94,9 @@ class _homePageState extends State<homePage> {
                 ],
               ),
             ),
+            SizedBox(
+              width: 50,
+            ),
             Container(
                 width: MediaQuery.of(context).size.width / 2,
                 padding: EdgeInsets.only(top: 20),
@@ -100,6 +104,6 @@ class _homePageState extends State<homePage> {
           ],
         ),
       ),
-    );
+    ));
   }
 }
