@@ -158,7 +158,7 @@ class _SignUpState extends State<SignUp> {
                             )..show();
                           }
                         },
-                        child: Text("create account"),
+                        child: Text("Account Aanmaken"),
                         color: HexColor("#A1813D"),
                       ),
                     ),
