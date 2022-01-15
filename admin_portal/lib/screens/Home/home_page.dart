@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:admin_portal/screens/Authercation/SignUp.dart';
 import 'package:hexcolor/hexcolor.dart';
+
 class homePage extends StatefulWidget {
   homePage({Key? key}) : super(key: key);
 
@@ -17,8 +18,8 @@ class _homePageState extends State<homePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child:
-      Container(
+        body: Center(
+      child: Container(
         height: MediaQuery.of(context).size.height * 0.8,
         width: MediaQuery.of(context).size.width * 0.8,
         decoration: const BoxDecoration(color: Colors.white),
@@ -34,7 +35,7 @@ class _homePageState extends State<homePage> {
                   Container(
                     padding: EdgeInsets.only(top: 30, bottom: 20),
                     child: Text(
-                      "Welcome",
+                      "Welkom",
                       style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
@@ -52,8 +53,9 @@ class _homePageState extends State<homePage> {
                         height: 50,
                         decoration: BoxDecoration(color: HexColor("#A1813D")),
                         child: MaterialButton(
+                          //Verander pagetype naar "add"
                           onPressed: () => setState(() => pageType = "add"),
-                          child: Text("Add an\nArt piece "),
+                          child: Text("Voeg een\nkunstwerk toe"),
                         ),
                       ),
                       SizedBox(
@@ -64,8 +66,9 @@ class _homePageState extends State<homePage> {
                         height: 50,
                         decoration: BoxDecoration(color: HexColor("#A1813D")),
                         child: MaterialButton(
+                          //Verander pagetype naar "list"
                           onPressed: () => setState(() => pageType = "list"),
-                          child: Text("List of\nArt pieces "),
+                          child: Text("Lijst van\nkunstwerken"),
                         ),
                       ),
                       SizedBox(
@@ -76,7 +79,7 @@ class _homePageState extends State<homePage> {
                         height: 50,
                         decoration: BoxDecoration(color: HexColor("#A1813D")),
                         child: MaterialButton(
-                            child: Text("Add Account"),
+                            child: Text("Maak nieuwe admin aan"),
                             onPressed: () async {
                               try {
                                 await Navigator.push(
@@ -100,6 +103,7 @@ class _homePageState extends State<homePage> {
             Container(
                 width: MediaQuery.of(context).size.width / 2,
                 padding: EdgeInsets.only(top: 20),
+                //Verandert widget aan de hand van pagetype
                 child: (pageType == "list") ? artList() : addDataWidget())
           ],
         ),

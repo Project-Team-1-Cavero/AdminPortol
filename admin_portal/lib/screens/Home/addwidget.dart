@@ -35,7 +35,7 @@ class _addDataWidgetState extends State<addDataWidget> {
         ),
         TextField(
           controller: _nameField,
-          decoration: const InputDecoration(label: Text("Name")),
+          decoration: const InputDecoration(label: Text("Naam")),
         ),
         TextField(
           controller: _infoField,
@@ -43,23 +43,23 @@ class _addDataWidgetState extends State<addDataWidget> {
         ),
         TextField(
           controller: _yearField,
-          decoration: const InputDecoration(label: Text("Year")),
+          decoration: const InputDecoration(label: Text("Jaar")),
         ),
         TextField(
           controller: _artiestField,
-          decoration: const InputDecoration(label: Text("Artist")),
+          decoration: const InputDecoration(label: Text("Artiest")),
         ),
         TextField(
           controller: _roomField,
-          decoration: const InputDecoration(label: Text("Room")),
+          decoration: const InputDecoration(label: Text("Kamer")),
         ),
         TextField(
           controller: _floorField,
-          decoration: const InputDecoration(label: Text("Floor")),
+          decoration: const InputDecoration(label: Text("Etage")),
         ),
         TextField(
           controller: _buildField,
-          decoration: const InputDecoration(label: Text("Building")),
+          decoration: const InputDecoration(label: Text("Gebouw")),
         ),
         TextField(
           controller: _videoField,
@@ -67,58 +67,57 @@ class _addDataWidgetState extends State<addDataWidget> {
         ),
         TextField(
           controller: _buyField,
-          decoration: const InputDecoration(label: Text("Buy link")),
+          decoration: const InputDecoration(label: Text("Koop link")),
         ),
         Text(textfield),
         Row(
           children: [
-Container(
-          width: 100,
-          height: 35,
-          decoration: BoxDecoration(color: HexColor("#A1813D")),
-          child: MaterialButton(
-            onPressed: () {
-              selectImages();
-            },
-            child: Text("Upload image "),
-          ),
-        ),
-        SizedBox(
+            Container(
+              width: 100,
+              height: 35,
+              decoration: BoxDecoration(color: HexColor("#A1813D")),
+              child: MaterialButton(
+                onPressed: () {
+                  selectImages();
+                },
+                child: Text("Upload afbeelding"),
+              ),
+            ),
+            SizedBox(
               width: 20,
             ),
-        Container(
-          width: 100,
-          height: 35,
-          decoration: BoxDecoration(color: HexColor("#A1813D")),
-          child: MaterialButton(
-            child: Text("Add"),
-            onPressed: () async {
-              bool isAdded = await addArtPiece(
-                  _nameField.text,
-                  _infoField.text,
-                  _yearField.text,
-                  _artiestField.text,
-                  _videoField.text,
-                  _roomField.text,
-                  _floorField.text,
-                  _buildField.text,
-                  _buyField.text);
-              uploadToFbStorage(_nameField.text, _artiestField.text);
-              if (isAdded) {
-                setState(() {
-                  textfield = "Added";
-                });
-              } else {
-                setState(() {
-                  textfield = "Error";
-                });
-              }
-            },
-          ),
-        )
+            Container(
+              width: 100,
+              height: 35,
+              decoration: BoxDecoration(color: HexColor("#A1813D")),
+              child: MaterialButton(
+                child: Text("Voeg toe"),
+                onPressed: () async {
+                  bool isAdded = await addArtPiece(
+                      _nameField.text,
+                      _infoField.text,
+                      _yearField.text,
+                      _artiestField.text,
+                      _videoField.text,
+                      _roomField.text,
+                      _floorField.text,
+                      _buildField.text,
+                      _buyField.text);
+                  uploadToFbStorage(_nameField.text, _artiestField.text);
+                  if (isAdded) {
+                    setState(() {
+                      textfield = "Toegevoegd";
+                    });
+                  } else {
+                    setState(() {
+                      textfield = "Error";
+                    });
+                  }
+                },
+              ),
+            )
           ],
         )
-        
       ],
     );
   }

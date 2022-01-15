@@ -35,7 +35,7 @@ class _SignUpState extends State<SignUp> {
         if (e.code == 'weak-password') {
           AwesomeDialog(
             context: context,
-            title: 'The password provided is too weak',
+            title: 'Het opgegeven wachtwoord is te zwak.',
             width: 500,
           )..show();
 
@@ -43,7 +43,7 @@ class _SignUpState extends State<SignUp> {
         } else if (e.code == 'email-already-in-use') {
           AwesomeDialog(
             context: context,
-            title: "The account already exists for that email",
+            title: "Er bestaat al een account voor die email.",
             width: 500,
           )..show();
         }
@@ -56,7 +56,6 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        
         body: Center(
       child: Container(
         decoration: const BoxDecoration(color: Colors.white),
@@ -84,7 +83,7 @@ class _SignUpState extends State<SignUp> {
                     TextFormField(
                       validator: (String? value) {
                         if (value!.isEmpty) {
-                          return "please enter your email";
+                          return "Graag email adres opgeven.";
                         }
 
                         return null;
@@ -115,7 +114,7 @@ class _SignUpState extends State<SignUp> {
                           constraints:
                               BoxConstraints.tight(const Size(600, 50)),
                           fillColor: HexColor("#cbc2ae"),
-                          hintText: "Password",
+                          hintText: "Wachtwoord",
                           border: OutlineInputBorder(
                               borderSide: BorderSide(width: 1))),
                     ),
@@ -125,7 +124,7 @@ class _SignUpState extends State<SignUp> {
                       obscureText: true,
                       validator: (String? value) {
                         if (password.text != confirmpassword.text) {
-                          return "Those passwords didn't match. Try again.";
+                          return "De wachtwoorden komen niet overeen. Probeer opnieuw.";
                         }
                         return null;
                       },
@@ -136,7 +135,7 @@ class _SignUpState extends State<SignUp> {
                             width: 600,
                           ),
                           fillColor: HexColor("#cbc2ae"),
-                          hintText: "Confirm Password",
+                          hintText: "Wachtwoord opnieuw",
                           border: OutlineInputBorder(
                               borderSide: BorderSide(width: 1))),
                     ),
@@ -154,7 +153,7 @@ class _SignUpState extends State<SignUp> {
                               dialogType: DialogType.SUCCES,
                               animType: AnimType.BOTTOMSLIDE,
                               width: 500,
-                              title: 'Account successfully created',
+                              title: 'Account succesvol aangemaakt!',
                             )..show();
                           }
                         },
@@ -164,9 +163,7 @@ class _SignUpState extends State<SignUp> {
                     ),
                     Container(
                         child: Row(children: [
-                          
-                      FloatingActionButton.small( 
-                        
+                      FloatingActionButton.small(
                         onPressed: () async {
                           try {
                             await Navigator.push(
@@ -179,7 +176,10 @@ class _SignUpState extends State<SignUp> {
                           }
                         },
                         backgroundColor: HexColor("#A1813D"),
-                        child: Icon(Icons.arrow_back, color: Colors.black,),
+                        child: Icon(
+                          Icons.arrow_back,
+                          color: Colors.black,
+                        ),
                       ),
                     ]))
                   ])),

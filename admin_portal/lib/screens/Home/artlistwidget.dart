@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
-
 class artListWidget extends StatefulWidget {
   final QueryDocumentSnapshot<Object?> artpiece;
 
@@ -118,7 +117,7 @@ class _artListWidgetState extends State<artListWidget> {
                     icon: Icon(Icons.qr_code),
                     color: Colors.black,
                     iconSize: 40.0,
-                    tooltip: "Generate QR code",
+                    tooltip: "Genereer QR code",
                     onPressed: () {
                       //QR code functie
                       qrDialog();
@@ -128,13 +127,11 @@ class _artListWidgetState extends State<artListWidget> {
                     icon: Icon(Icons.delete),
                     color: Colors.black,
                     iconSize: 40.0,
-                    tooltip: "Delete",
+                    tooltip: "Verwijderen",
                     onPressed: () {
                       //Delete functie
                       widget.artpiece.reference.delete();
-                      setState(() {
-                        
-                      });
+                      setState(() {});
                     },
                   ),
                 ]),
@@ -145,28 +142,32 @@ class _artListWidgetState extends State<artListWidget> {
       ),
     );
   }
-  Future qrDialog() => showDialog(
-    context: this.context, 
-    builder: (context){
-      return Center(
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: Colors.white
-             ),
-             height: 350,
-             child: Column(
-               children: [Text(widget.artpiece["Name"],
-               style: TextStyle(fontSize: 25),),
-               SizedBox(height: 20,),
-               QrImage(
-              data: widget.artpiece["Name"],
-              version: QrVersions.auto,
-              size: 300,
-              )],),
-             ),
-             );
-    });
 
-    
+  Future qrDialog() => showDialog(
+      context: this.context,
+      builder: (context) {
+        return Center(
+          child: Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10), color: Colors.white),
+            height: 350,
+            child: Column(
+              children: [
+                Text(
+                  widget.artpiece["Name"],
+                  style: TextStyle(fontSize: 25),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                QrImage(
+                  data: widget.artpiece["Name"],
+                  version: QrVersions.auto,
+                  size: 300,
+                )
+              ],
+            ),
+          ),
+        );
+      });
 }
