@@ -67,7 +67,7 @@ class _AuthercationScreenState extends State<AuthercationScreen> {
                   obscureText: true,
                   // ignore: prefer_const_constructors
                   decoration: InputDecoration(
-                    label: const Text("Password"),
+                    label: const Text("Wachtwoord"),
                     labelStyle: TextStyle(color: Colors.black),
                   ),
 
