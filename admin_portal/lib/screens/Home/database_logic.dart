@@ -48,13 +48,13 @@ Future<Uri> dowmloadURL(String ImageLocation) {
 }
 
 var image = null;
-void selectImages() {
+void selectImages() {//deze functie is voor het selecteren van een image
   var imageInput = FileUploadInputElement()
     ..accept =
         'image/*'; //dit zorgt ervoor dat je alleen maar foto's kan uploaden
   imageInput.click();
 
-  imageInput.onChange.listen((event) {
+  imageInput.onChange.listen((event) {//hier word er gecheckt voor erros en wat voor file dit is
     var file = imageInput.files!.first;
     var fileReader = FileReader();
     fileReader.readAsDataUrl(file);
@@ -64,7 +64,7 @@ void selectImages() {
   });
 }
 
-void uploadToFbStorage(String artname, String artist) {
+void uploadToFbStorage(String artname, String artist) {//deze functie zorgt voor het uploaden van de afbeelding naar firebase
   firebase
       .storage()
       .refFromURL(

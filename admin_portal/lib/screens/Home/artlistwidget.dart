@@ -151,27 +151,27 @@ class _artListWidgetState extends State<artListWidget> {
     );
   }
 
-  Future qrDialog() => showDialog(
+  Future qrDialog() => showDialog( // deze functie zorgt voor het pop up scherm met een qr code vn een kunstwerk
       context: this.context,
       builder: (context) {
         return Center(
           child: Container(
-            decoration: BoxDecoration(
+            decoration: BoxDecoration(// achtergrond van het pop up  scherm (vorm en groote)
                 borderRadius: BorderRadius.circular(10), color: Colors.white),
             height: 350,
             child: Column(
               children: [
-                Text(
+                Text(//titel van het pop up scherm
                   widget.artpiece["Name"],
                   style: TextStyle(fontSize: 25),
                 ),
-                SizedBox(
+                SizedBox(//lege ruimte tussen titel en qr-image
                   height: 20,
                 ),
-                QrImage(
-                  data: widget.artpiece["Name"],
+                QrImage(//qr-image aanmaken 
+                  data: widget.artpiece["Name"],//data in qr code
                   version: QrVersions.auto,
-                  size: 300,
+                  size: 300,// groote van qr code
                 )
               ],
             ),
