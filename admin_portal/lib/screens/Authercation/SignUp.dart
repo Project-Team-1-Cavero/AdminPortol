@@ -12,7 +12,7 @@ class SignUp extends StatefulWidget {
   @override
   _SignUpState createState() => _SignUpState();
 }
-
+// deze class maakt nieuwe account aan en sla het op in de firebase
 class _SignUpState extends State<SignUp> {
   late var MyPassword, MyEmail;
   late var x = false;
@@ -31,7 +31,10 @@ class _SignUpState extends State<SignUp> {
         x = true;
 
         return userCredential;
+
       } on FirebaseAuthException catch (e) {
+        // er verschijnt een melding wanneer de gebruiker een zwak wachtwoord invoert,
+        // of als hij een account heeft op het zelfde email
         if (e.code == 'weak-password') {
           AwesomeDialog(
             context: context,
@@ -54,6 +57,7 @@ class _SignUpState extends State<SignUp> {
   }
 
   @override
+  //interface nieuwe account aanmaken pagina
   Widget build(BuildContext context) {
     return Scaffold(
         body: Center(
@@ -64,6 +68,7 @@ class _SignUpState extends State<SignUp> {
         child: ListView(
           children: [
             Container(
+                // logo de loods
                 padding: EdgeInsets.only(
                     top: MediaQuery.of(context).size.height / 20),
                 width: MediaQuery.of(context).size.width / 2,
@@ -80,6 +85,7 @@ class _SignUpState extends State<SignUp> {
                     SizedBox(
                       height: 30,
                     ),
+                    // email invoerveld
                     TextFormField(
                       validator: (String? value) {
                         if (value!.isEmpty) {
@@ -88,6 +94,7 @@ class _SignUpState extends State<SignUp> {
 
                         return null;
                       },
+                      // sla de waarde op die door de gebruiker is ingevoerd in de MyEmail variable
                       onSaved: (val) {
                         MyEmail = val;
                       },
@@ -103,9 +110,11 @@ class _SignUpState extends State<SignUp> {
                             borderSide: BorderSide(width: 1),
                           )),
                     ),
+                    // wachtwoord invoerveld
                     TextFormField(
                       controller: password,
                       obscureText: true,
+                      //sla de waarde op die door de gebruiker is ingevoerd in de MyPassword variable
                       onSaved: (val) {
                         MyPassword = val;
                       },
@@ -119,6 +128,7 @@ class _SignUpState extends State<SignUp> {
                               borderSide: BorderSide(width: 1))),
                     ),
                     SizedBox(height: 30),
+                    // wachtwoord opnieuw invoerveld
                     TextFormField(
                       controller: confirmpassword,
                       obscureText: true,
@@ -148,6 +158,7 @@ class _SignUpState extends State<SignUp> {
                           await signup();
 
                           if (x == true) {
+                            // er verschijnt een melding wanneer het aanmaken van een account is gelukt,
                             AwesomeDialog(
                               context: context,
                               dialogType: DialogType.SUCCES,
@@ -161,6 +172,7 @@ class _SignUpState extends State<SignUp> {
                         color: HexColor("#A1813D"),
                       ),
                     ),
+                    // terug-knop naar de vorige pagina
                     Container(
                         child: Row(children: [
                       FloatingActionButton.small(
