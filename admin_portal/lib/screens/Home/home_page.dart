@@ -1,6 +1,8 @@
+import 'package:admin_portal/screens/Authercation/uthercationscreen.dart';
 import 'package:admin_portal/screens/Home/addwidget.dart';
 import 'package:admin_portal/screens/Home/artlist.dart';
 import 'package:admin_portal/screens/Home/database_logic.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:admin_portal/screens/Authercation/SignUp.dart';
@@ -92,6 +94,26 @@ class _homePageState extends State<homePage> {
                               }
                             }),
                       ),
+                      SizedBox(
+                        height: 180,
+                      ),
+                      Container(
+                        child: FloatingActionButton.small(
+                          onPressed: () async {
+                            await FirebaseAuth.instance.signOut();
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        AuthercationScreen()));
+                          },
+                          backgroundColor: HexColor("#A1813D"),
+                          child: Icon(
+                            Icons.logout,
+                            color: Colors.black,
+                          ),
+                        ),
+                      )
                     ],
                   )
                 ],
