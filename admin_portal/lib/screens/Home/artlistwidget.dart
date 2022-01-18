@@ -11,6 +11,7 @@ class artListWidget extends StatefulWidget {
   _artListWidgetState createState() => _artListWidgetState();
 }
 
+//Deze class bouwt een item in de lijst met kunstwerken
 class _artListWidgetState extends State<artListWidget> {
   @override
   Widget build(BuildContext context) {
@@ -21,6 +22,7 @@ class _artListWidgetState extends State<artListWidget> {
         child: Expanded(
           child: Row(
             children: [
+              //Linkerzijde
               Container(
                 decoration: const BoxDecoration(color: Colors.white),
                 height: MediaQuery.of(context).size.height / 7.5,
@@ -37,6 +39,7 @@ class _artListWidgetState extends State<artListWidget> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              //Titel van het kunstwerk met het jaar ernaast tussen haakjes
                               Container(
                                 height:
                                     MediaQuery.of(context).size.height / 300,
@@ -56,6 +59,7 @@ class _artListWidgetState extends State<artListWidget> {
                           ),
                         ),
                         Container(
+                          //Kunstenaar
                           height: MediaQuery.of(context).size.height / 50,
                         ),
                         Text(
@@ -71,10 +75,12 @@ class _artListWidgetState extends State<artListWidget> {
                 ]),
               ),
               Container(
+                  //middenpunt
                   decoration: const BoxDecoration(color: Colors.white),
                   child: Padding(
                       padding: EdgeInsets.all(16.0),
                       child: Row(children: [
+                        //Likes en dislikes
                         Column(
                           children: [
                             Icon(
@@ -111,8 +117,10 @@ class _artListWidgetState extends State<artListWidget> {
                       ]))),
               SizedBox(width: 10),
               Container(
+                //rechterzijde
                 decoration: const BoxDecoration(color: Colors.white),
                 child: Row(children: [
+                  //Tools
                   IconButton(
                     icon: Icon(Icons.qr_code),
                     color: Colors.black,

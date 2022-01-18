@@ -16,6 +16,7 @@ class _artListState extends State<artList> {
 
   @override
   Widget build(BuildContext context) {
+    //Bouwt een lijst met kunstwerken.
     return Container(
         child: StreamBuilder<QuerySnapshot>(
       stream: artPieces,
@@ -30,14 +31,15 @@ class _artListState extends State<artList> {
           );
         }
 
-        final data = snapshot.requireData;
+        final data = snapshot.requireData; //Haal de data van de kunstwerken op.
 
         return ListView.builder(
           itemCount: data.size,
           itemBuilder: (BuildContext context, int index) {
             if (data.docs[index] != null) {
               var artpiece = data.docs[index];
-              return artListWidget(artpiece);
+              return artListWidget(
+                  artpiece); //Maak een artlistwidget aan voor elke item in de lijst.
             }
 
             return Text("Something went wrong");
