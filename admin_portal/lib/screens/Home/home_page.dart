@@ -97,6 +97,7 @@ class _homePageState extends State<homePage> {
                       SizedBox(
                         height: 180,
                       ),
+                      // uitloggen knop
                       Container(
                         child: FloatingActionButton.small(
                           onPressed: () async {
