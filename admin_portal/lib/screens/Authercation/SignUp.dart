@@ -7,23 +7,23 @@ import 'package:admin_portal/screens/Home/home_page.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class SignUp extends StatefulWidget {
-  SignUp({Key? key}) : super(key: key);
+class Sign_Up extends StatefulWidget {
+  Sign_Up({Key? key}) : super(key: key);
   @override
-  _SignUpState createState() => _SignUpState();
+  _Sign_UpState createState() => _Sign_UpState();
 }
 // deze class maakt nieuwe account aan en sla het op in de firebase
-class _SignUpState extends State<SignUp> {
+class _Sign_UpState extends State<Sign_Up> {
   late var MyPassword, MyEmail;
   late var x = false;
   TextEditingController password = TextEditingController();
   TextEditingController confirmpassword = TextEditingController();
 
-  GlobalKey<FormState> fstate = new GlobalKey<FormState>();
-  signup() async {
-    var form_data = fstate.currentState;
-    if (form_data!.validate()) {
-      form_data.save();
+  GlobalKey<FormState> FS = new GlobalKey<FormState>();
+  signupFunc() async {
+    var F_Data = FS.currentState;
+    if (F_Data!.validate()) {
+      F_Data.save();
       try {
         UserCredential userCredential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(
@@ -80,7 +80,7 @@ class _SignUpState extends State<SignUp> {
             Container(
               padding: EdgeInsets.all(20),
               child: Form(
-                  key: fstate,
+                  key: FS,
                   child: Column(children: [
                     SizedBox(
                       height: 30,
@@ -155,7 +155,7 @@ class _SignUpState extends State<SignUp> {
                       child: MaterialButton(
                         textColor: Colors.black,
                         onPressed: () async {
-                          await signup();
+                          await signupFunc();
 
                           if (x == true) {
                             // er verschijnt een melding wanneer het aanmaken van een account is gelukt,

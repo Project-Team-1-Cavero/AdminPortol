@@ -87,7 +87,7 @@ class _homePageState extends State<homePage> {
                                 await Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => SignUp()));
+                                        builder: (context) => Sign_Up()));
                               } catch (e) {
                                 print(e.toString());
                                 ;
